@@ -8,7 +8,7 @@ import Sale3 from "../assets/sale3.png"
 const Ads = () => {
     return (
         <>
-          <section className='py-20'>
+          <section className='lg:py-20 py-4'>
           <Container>
                 <Flex className="justify-between">
                     <div className="w-[48%]">
@@ -18,7 +18,7 @@ const Ads = () => {
                         <div className="">
                             <img src={Sale2} alt={Sale2} />
                         </div>
-                        <div className="mt-[40px]">
+                        <div className="lg:mt-[33px] mt-[10px]">
                             <img src={Sale3} alt={Sale3} />
                         </div>
                     </div>

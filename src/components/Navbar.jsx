@@ -48,12 +48,12 @@ const Navbar = () => {
                     {cartShow &&
                         <div className="absolute z-50 top-[50px] left-0 bg-[#262626] w-[300px]">
                             <ul className='py-4'>
-                                <li className='text-[rgba(255,255,255,0.7)] font-sans text-[16px] py-2 duration-300 ease-in-out pl-3 hover:pl-6'>Accesories</li>
-                                <li className='text-[rgba(255,255,255,0.7)] font-sans text-[16px] py-2 duration-300 ease-in-out pl-3 hover:pl-6'>Furniture</li>
-                                <li className='text-[rgba(255,255,255,0.7)] font-sans text-[16px] py-2 duration-300 ease-in-out pl-3 hover:pl-6'>Electronics</li>
-                                <li className='text-[rgba(255,255,255,0.7)] font-sans text-[16px] py-2 duration-300 ease-in-out pl-3 hover:pl-6'>Clothes</li>
-                                <li className='text-[rgba(255,255,255,0.7)] font-sans text-[16px] py-2 duration-300 ease-in-out pl-3 hover:pl-6'>Bags</li>
-                                <li className='text-[rgba(255,255,255,0.7)] font-sans text-[16px] py-2 duration-300 ease-in-out pl-3 hover:pl-6'>Home appliances</li>
+                                <li className='text-[rgba(255,255,255,0.7)] hover:text-[#fff] hover:border-[2px] border-white font-sans text-[16px] py-2 duration-300 ease-in-out pl-3 hover:pl-6'>Accesories</li>
+                                <li className='text-[rgba(255,255,255,0.7)] hover:text-[#fff] hover:border-[2px] border-white font-sans text-[16px] py-2 duration-300 ease-in-out pl-3 hover:pl-6'>Furniture</li>
+                                <li className='text-[rgba(255,255,255,0.7)] hover:text-[#fff] hover:border-[2px] border-white font-sans text-[16px] py-2 duration-300 ease-in-out pl-3 hover:pl-6'>Electronics</li>
+                                <li className='text-[rgba(255,255,255,0.7)] hover:text-[#fff] hover:border-[2px] border-white font-sans text-[16px] py-2 duration-300 ease-in-out pl-3 hover:pl-6'>Clothes</li>
+                                <li className='text-[rgba(255,255,255,0.7)] hover:text-[#fff] hover:border-[2px] border-white font-sans text-[16px] py-2 duration-300 ease-in-out pl-3 hover:pl-6'>Bags</li>
+                                <li className='text-[rgba(255,255,255,0.7)] hover:text-[#fff] hover:border-[2px] border-white font-sans text-[16px] py-2 duration-300 ease-in-out pl-3 hover:pl-6'>Home appliances</li>
                             </ul>
                         </div>
                     }
@@ -77,11 +77,11 @@ const Navbar = () => {
                         </div>
                     </div>
                     {userShow &&
-                  <div className="absolute z-50 top-[30px] right-0 w-[300px] bg-[#262626] py-3 px-6">
+                  <div className="absolute z-50 top-[30px] right-0 w-[300px] bg-[#262626] py-4">
                     <ul className='font-sans text-[16px] font-normal text-[#FFFFFFB2]'>
-                      <li className='py-[16px] duration-300 ease-in-out hover:text-[#fff] hover:pl-[10px]'>My Account</li>
-                      <li className='py-[16px] duration-300 ease-in-out hover:text-[#fff] hover:pl-[10px]'>Log in</li>
-                      <li className='py-[16px] duration-300 ease-in-out hover:text-[#fff] hover:pl-[10px]'>Sign Up</li>
+                      <li className='py-2 duration-300 ease-in-out hover:border-[2px] border-white hover:text-[#fff] pl-3 hover:pl-6'>My Account</li>
+                      <li className='py-2 duration-300 ease-in-out hover:border-[2px] border-white hover:text-[#fff] pl-3 hover:pl-6'>Log in</li>
+                      <li className='py-2 duration-300 ease-in-out hover:border-[2px] border-white hover:text-[#fff] pl-3 hover:pl-6'>Sign Up</li>
                     </ul>
                   </div>
                 }

@@ -5,7 +5,7 @@ import { SlBasket } from "react-icons/sl";
 const ArrivalsItem = ({ item }) => {
     console.log(item);
     return (
-        <div className='w-[96%] py-5'>
+        <div className='w-[96%] lg:py-5 py-2'>
             <div className="relative group overflow-hidden">
                 <img src={item.thumbnail} className="h-[300px]" alt="" />
                 <div className="bg-white absolute left-0 h-[120px] bottom-[-120px] w-full group-hover:bottom-0 duration-300 ease-in-out flex items-center justify-end">

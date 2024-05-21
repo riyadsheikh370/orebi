@@ -61,20 +61,20 @@ const Banner = () => {
         </div>
     </Slider>
     <Container>
-      <Flex className="justify-between py-4">
+      <Flex className="justify-between py-4 flex-wrap">
         <div className="">
-          <h2 className='font-sans text-[16px] lg:text-[#767676] text-[white]'> <span className='pr-2'>2</span>Two years warranty</h2>
+          <h2 className='font-sans text-[16px] lg:text-[#767676]'> <span className='pr-2'>2</span>Two years warranty</h2>
         </div>
         <div className="">
           <div className="flex items-center gap-x-4">
           <TbTruckDelivery/>
-            <h2 className='font-sans text-[16px] lg:text-[#767676] text-[white]'> Free shipping</h2>
+            <h2 className='font-sans text-[16px] lg:text-[#767676]'> Free shipping</h2>
           </div>
         </div>
         <div className="">
           <div className="flex items-center gap-x-4">
           <IoReload/>
-          <h2 className='font-sans text-[16px] lg:text-[#767676] text-[white]'> Return policy in 30 days</h2>
+          <h2 className='font-sans text-[16px] lg:text-[#767676]'> Return policy in 30 days</h2>
           </div>
         </div>
       </Flex>
