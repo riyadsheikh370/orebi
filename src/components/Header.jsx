@@ -29,9 +29,15 @@ const Header = () => {
                                 <li className='text-[16px] lg:text-[#767676] text-white hover:text-[#262626]'>
                                     <Link to="/shop">Shop</Link>
                                 </li>
-                                <li className='text-[16px] lg:text-[#767676] text-white hover:text-[#262626]'>About</li>
-                                <li className='text-[16px] lg:text-[#767676] text-white hover:text-[#262626]'>Contacts</li>
-                                <li className='text-[16px] lg:text-[#767676] text-white hover:text-[#262626]'>Journal</li>
+                                <li className='text-[16px] lg:text-[#767676] text-white hover:text-[#262626]'>
+                                    <Link to="/about">About</Link>
+                                </li>
+                                <li className='text-[16px] lg:text-[#767676] text-white hover:text-[#262626]'>
+                                    <Link to="/contact">Contacts</Link>
+                                </li>
+                                <li className='text-[16px] lg:text-[#767676] text-white hover:text-[#262626]'>
+                                    <Link to="/journal">Journal</Link>
+                                </li>
                             </ul>
                         </div>
                         <div className="lg:hidden" onClick={handleShow}>
