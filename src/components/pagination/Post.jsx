@@ -11,11 +11,11 @@ const Post = ({allData}) => {
     return (
         <>
             {allData.map((item) => (
-                <div className='w-[32%] lg:py-5'>
+                <div className='lg:w-[32%] lg:py-5 py-4 w-[100%] lg:px-0 px-3'>
                     <Link to={`/shop/${item.id}`}>
                         <div className="">
                             <div className="relative group overflow-hidden">
-                                <img src={item.thumbnail} className="h-[300px]" alt="fddf" />
+                                <img src={item.thumbnail} className="h-[300px]" alt="" />
                                 <div className="bg-white absolute left-0 h-[120px] bottom-[-120px] w-full group-hover:bottom-0 duration-300 ease-in-out flex items-center justify-end">
                                     <ul className='pr-5'>
                                         <li className='flex items-center justify-end gap-x-4'>Add to Wish List <FaHeart /></li>

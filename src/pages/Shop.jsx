@@ -106,12 +106,12 @@ const Shop = () => {
   return (
     <section>
       <div className="container mx-auto">
-        <div className="Page_head_line py-[40px]">
+        <div className="Page_head_line py-[40px] px-3 lg:px-0">
           <h1 className=' font-sans font-[700] text-[40px] md:text-[49px] text-[#262626] ' >Prodect</h1>
           <span className='text-[12px] font-[400] font-sans text-[#767676]' >Home Prodect</span>
         </div>
-        <div className="main_box flex justify-between">
-          <div className="catagory md:w-[25%]">
+        <div className="main_box lg:flex justify-between">
+          <div className="catagory md:w-[25%] lg:px-0 px-3">
             <ul>
               <li className='font-[700] text-[#262626] text-[20px] font-sans pb-[21px]' >Shop by Category</li>
               <li className='font-[400] text-[#767676] text-[16px] font-sans py-[21px] flex justify-between w-[90%] items-center'><span>Category 1</span><IoIosAdd /></li>
@@ -150,12 +150,12 @@ const Shop = () => {
             </ul>
           </div>
           <div className="prodect_item md:w-[75%]">
-            <div className="sistambtn flex justify-between">
-              <div className="gridmain ml-[10px] justify-between flex w-[11%]  lg:ml-[-1px]">
+            <div className="sistambtn lg:flex justify-between">
+              <div className="gridmain ml-[10px] justify-between flex lg:w-[11%] w-[25%] lg:ml-[-1px]">
                 <div className="grid1 text-[20px] p-[10px] border-[1px] border-[#262626] hover:text-[#fff] hover:bg-[#262626]"><BsGridFill /></div>
                 <div className="grid2 text-[20px] p-[10px] border-[1px] border-[#262626] hover:text-[#fff] hover:bg-[#262626]"><CiGrid2H /></div>
               </div>
-              <div className="op flex justify-between w-[40%]">
+              <div className="op flex justify-between lg:w-[40%] w-[99%] px-2 lg:px-0 lg:pt-0 pt-[20px]">
                 <div className="items-center flex">
                   <h2 className='mr-[10px] font-sans'>Sort by :</h2>
                   <select className='p-[5px] border-[1px] border-[#262626] outline-none rounded-[3px]'>
@@ -177,7 +177,7 @@ const Shop = () => {
             <div className="prodects flex justify-between flex-wrap py-7">
               <Post allData={allData} />
             </div>
-            <div className="text-end">
+            <div className="lg:text-end text-center">
               <PaginationArea pageNumber={pageNumber} paginate={paginate} currentPage={currentPage} />
             </div>
           </div>
