@@ -89,12 +89,9 @@ const Shop = () => {
   for (let i = 0; i < Math.ceil(data.length / perPage); i++) {
     pageNumber.push(i)
   };
-
   let paginate = (pageNumber) => {
     setCurrentPage(pageNumber + 1);
   }
-
-
   let [colshow, setcolshow] = useState(false)
   let color = () => {
     setcolshow(!colshow)
@@ -103,6 +100,19 @@ const Shop = () => {
   let brand = () => {
     setbrandshow(!brandshow)
   }
+let next =  () =>{
+ if(currentPage < pageNumber.length){
+  setCurrentPage((state) => state + 1 )
+ }
+}
+let prev = () =>{
+  if( currentPage > 1){
+    setCurrentPage((state) => state - 1)
+  }
+}
+
+
+
   return (
     <section>
       <div className="container mx-auto">
@@ -178,7 +188,7 @@ const Shop = () => {
               <Post allData={allData} />
             </div>
             <div className="lg:text-end text-center">
-              <PaginationArea pageNumber={pageNumber} paginate={paginate} currentPage={currentPage} />
+              <PaginationArea pageNumber={pageNumber} paginate={paginate} currentPage={currentPage} next={next} prev={prev} />
             </div>
           </div>
         </div>
