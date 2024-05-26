@@ -3,7 +3,7 @@ import { TfiReload } from "react-icons/tfi";
 import { SlBasket } from "react-icons/sl";
 
 const ArrivalsItem = ({ item }) => {
-    console.log(item);
+  
     return (
         <div className='w-[96%] lg:py-5 py-2'>
             <div className="relative group overflow-hidden">

@@ -1,17 +1,19 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import Container from '../components/Container';
 import Flex from '../components/Flex';
-import Pdl from "../assets/about1.png"
 import { IoMdStarHalf } from "react-icons/io";
 import { CiStar } from "react-icons/ci";
 import { FaStar } from "react-icons/fa6";
+import Facdin from '../components/Facdin';
+import { useDispatch } from 'react-redux'
+import { addToCart } from '../components/slice/ProductSlice';
 
 const ProductDetails = () => {
     let [singleData, setSingleData] = useState([])
     let ProductId = useParams()
-
+    let dispatch = useDispatch()
 
 
     let getData = () => (
@@ -31,7 +33,11 @@ const ProductDetails = () => {
         return (
             singleData.rating >= index + 1 ? <FaStar className='text-[#FFD881]' /> : singleData.rating > ratingNumber ? <IoMdStarHalf className='text-[#FFD881]' /> : <CiStar />
         )
-    })
+    });
+
+    let handleAddTocart = (item) => {
+        dispatch(addToCart({ ...item, qun: 1 }));
+    }
 
 
 
@@ -74,10 +80,13 @@ const ProductDetails = () => {
                             <a className="py-[16px] px-[45px] border-2 border-[#262626] inline-block hover:bg-[#262626] hover:text-white cursor-pointer duration-300 ease-in-out">
                                 Add to Wish List
                             </a>
-                            <a className="py-[16px] px-[45px] border-2 border-[#262626] inline-block hover:bg-[#262626] hover:text-white cursor-pointer ms-4 duration-300 ease-in-out">
-                                Add to Cart
-                            </a>
+                            <Link to="/cart" onClick={() => handleAddTocart(singleData)}>
+                                <a className="py-[16px] px-[45px] border-2 border-[#262626] inline-block hover:bg-[#262626] hover:text-white cursor-pointer ms-4 duration-300 ease-in-out">
+                                    Add to Cart
+                                </a>
+                            </Link>
                         </div>
+                        <Facdin />
                     </div>
                 </Container>
             </section>
