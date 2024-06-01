@@ -8,14 +8,13 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
     let [show, setShow] = useState(false);
-
     let handleShow = () => {
-        setShow(!show)
+        setShow(!show)  
     }
 
     return (
         <>
-            <div className="h-[80px]">
+            <div className="h-[80px] bg-[#F5F5F3]">
                 <Container>
                     <Flex className="justify-between items-center h-[80px] px-3 lg:px-0">
                         <div className="w-1/4">
@@ -36,7 +35,7 @@ const Header = () => {
                                     <Link to="/contact">Contacts</Link>
                                 </li>
                                 <li className='text-[16px] lg:text-[#767676] text-white hover:text-[#262626]'>
-                                    <Link to="/journal">Journal</Link>
+                                    <Link to="/checkout">Checkout</Link>
                                 </li>
                             </ul>
                         </div>

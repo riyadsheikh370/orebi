@@ -5,6 +5,7 @@ import { CiGrid2H } from "react-icons/ci";
 import Post from '../components/pagination/Post';
 import { apiData } from '../components/ContextApi';
 import PaginationArea from "../components/pagination/PaginationArea";
+import { Link } from 'react-router-dom';
 
 
 const Shop = () => {
@@ -53,7 +54,7 @@ let prev = () =>{
       <div className="container mx-auto">
         <div className="Page_head_line py-[40px] px-3 lg:px-0">
           <h1 className=' font-sans font-[700] text-[40px] md:text-[49px] text-[#262626] ' >Prodect</h1>
-          <span className='text-[12px] font-[400] font-sans text-[#767676]' >Home Prodect</span>
+          <h5 className='text-[12px] font-sans'><Link to="/">Home</Link> | Shop</h5>
         </div>
         <div className="main_box lg:flex justify-between">
           <div className="catagory md:w-[25%] lg:px-0 px-3">

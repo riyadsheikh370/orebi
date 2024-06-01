@@ -2,6 +2,7 @@ import React from 'react'
 import Container from "../components/Container"
 import About1 from "../assets/about1.png"
 import About2 from "../assets/about2.png"
+import { Link } from 'react-router-dom';
 
 const About = () => {
     return (
@@ -10,7 +11,7 @@ const About = () => {
                 <Container>
                     <div className="py-[50px]">
                         <h4 className='text-[49px] font-bold font-sans'>About</h4>
-                        <h5 className='text-[12px] font-sans'>Home | About</h5>
+                        <h5 className='text-[12px] font-sans'><Link to="/">Home</Link> | About</h5>
                     </div>
                     <div className="flex justify-between">
                         <div className="w-[49%]">

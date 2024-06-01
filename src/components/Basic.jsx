@@ -14,7 +14,7 @@ import Ads2 from "../assets/ads2.png"
 const Basic = () => {
     return (
         <>
-            <section className='lg:py-[50px] mb-10'>
+            <section className='lg:py-[50px] mb-10 bg-[#a99797]'>
                 <Container>
                     <Flex className="justify-between">
                         <div className="w-[24%]">

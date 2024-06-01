@@ -3,7 +3,7 @@ import About from "./pages/About";
 import Cart from "./pages/Cart";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
-import Journal from "./pages/Journal";
+import Checkout from "./pages/Checkout";
 import ProductDetails from "./pages/ProductDetails";
 import Shop from "./pages/Shop";
 import Error from "./pages/Error";
@@ -16,7 +16,7 @@ let router = createBrowserRouter(createRoutesFromElements(
     <Route path="/shop/:id" element={<ProductDetails />}></Route>
     <Route path="/about" element={<About />}></Route>
     <Route path="/contact" element={<Contact />}></Route>
-    <Route path="/journal" element={<Journal />}></Route>
+    <Route path="/checkout" element={<Checkout/>}></Route>
     <Route path="/cart" element={<Cart/>}></Route>
     <Route path="*" element={<Error/>}></Route>
   </Route>
