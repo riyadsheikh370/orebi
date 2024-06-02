@@ -37,7 +37,7 @@ const Navbar = () => {
     }, [cartShow, usercartShow, userShow])
 
     return (
-        <nav className='bg-[#a99797] py-4 lg:px-0 px-3'>
+        <nav className='bg-zinc-300 py-4 lg:px-0 px-3'>
             <Container>
                 <Flex className="items-center">
                     <div className="w-[30%] relative">

@@ -45,7 +45,7 @@ const Banner = () => {
   };
   return (
     <>
-      <section className='bg-[#a99797]'>
+      <section className='bg-zinc-300'>
         <Slider {...settings}>
           <div className="">
             <img src={BanImg} alt="banner" />
@@ -63,18 +63,18 @@ const Banner = () => {
         <Container>
           <div className="lg:flex justify-between py-4 lg:px-0 px-3">
             <div className="">
-              <h2 className='font-sans text-[16px] lg:text-[white]'> <span className='pr-2'>2</span>Two years warranty</h2>
+              <h2 className='font-sans text-[16px]'> <span className='pr-2'>2</span>Two years warranty</h2>
             </div>
             <div className="">
               <div className="flex items-center gap-x-4">
-                <TbTruckDelivery className='text-[white]' />
-                <h2 className='font-sans text-[16px] lg:text-[white]'> Free shipping</h2>
+                <TbTruckDelivery />
+                <h2 className='font-sans text-[16px]'> Free shipping</h2>
               </div>
             </div>
             <div className="">
               <div className="flex items-center gap-x-4">
-                <IoReload className='text-[white]' />
-                <h2 className='font-sans text-[16px] lg:text-[white]'> Return policy in 30 days</h2>
+                <IoReload />
+                <h2 className='font-sans text-[16px]'> Return policy in 30 days</h2>
               </div>
             </div>
           </div>
