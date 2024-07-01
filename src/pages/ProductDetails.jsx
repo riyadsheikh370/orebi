@@ -62,7 +62,7 @@ const ProductDetails = () => {
                             </div>
                         </div>
                         <h3 className='text-[#262626] font-sans lg:text-[20px] text-[23px] font-bold'>${singleData.price}</h3>
-                        <div className="flex items-center">
+                        {/* <div className="flex items-center">
                             <div className="mr-2">
                                 <h3 className='text-[#262626] font-sans text-[20px] font-normal'>QUANTITY :</h3>
                             </div>
@@ -71,7 +71,7 @@ const ProductDetails = () => {
                                 <div className="">0</div>
                                 <div className="">+</div>
                             </div>
-                        </div>
+                        </div> */}
                         <div className="flex items-center gap-x-6 py-6 border-b-[1px] border-[#262626]">
                             <h3 className='text-[#262626] font-sans text-[20px] font-normal'>STATUS :</h3>
                             <h4>0</h4>
