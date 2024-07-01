@@ -6,8 +6,10 @@ import { FaSearch, FaUser, FaCartPlus } from "react-icons/fa";
 import { MdArrowDropDown } from "react-icons/md";
 import CartImg from "../assets/cart.png"
 import { RxCross2 } from "react-icons/rx";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+    let data = useSelector((state) => state.product.cartItem)
     let [cartShow, setCartShow] = useState(false)
     let [usercartShow, setUsercartShow] = useState(false)
     let [userShow, setuserShow] = useState(false)
@@ -37,16 +39,16 @@ const Navbar = () => {
     }, [cartShow, usercartShow, userShow])
 
     return (
-        <nav className='bg-zinc-300 py-4 lg:px-0 px-3'>
+        <nav className='bg-rose-950 py-4 lg:px-0 px-3'>
             <Container>
                 <Flex className="items-center">
                     <div className="w-[30%] relative">
-                        <div ref={cartref} className="flex items-center gap-x-3">
+                        <div ref={cartref} className="flex items-center gap-x-3 text-white">
                             <FaBars />
-                            <p className='font-sans hidden lg:block text-[16px] lg:text-[#767676] text-[white] hover:text-[#262626]'>Shop by Category</p>
+                            <p className='font-sans hidden lg:block text-[16px] lg:text-[#767676] text-[white] hover:text-[white]'>Shop by Category</p>
                         </div>
                         {cartShow &&
-                            <div className="absolute z-50 top-[50px] left-0 bg-[#262626] w-[300px]">
+                            <div className="absolute z-50 top-[50px] left-0 bg-rose-950 w-[300px]">
                                 <ul className='py-4'>
                                     <li className='text-[rgba(255,255,255,0.7)] hover:text-[#fff] font-sans text-[16px] py-2 duration-300 ease-in-out pl-3 hover:pl-6'>Accesories</li>
                                     <li className='text-[rgba(255,255,255,0.7)] hover:text-[#fff] font-sans text-[16px] py-2 duration-300 ease-in-out pl-3 hover:pl-6'>Furniture</li>
@@ -61,23 +63,29 @@ const Navbar = () => {
                     <div className="w-[40%]">
                         <div className="relative">
                             <input placeholder='Search...' type="search" className='w-full h-[50px] border-2 border-[#262626] outline-none px-2' />
-                            <div className="absolute top-[50%] right-4 translate-y-[-50%] ">
+                            <div className="absolute top-[50%] right-4 translate-y-[-50%]">
                                 <FaSearch />
                             </div>
                         </div>
                     </div>
                     <div className="w-[30%] relative">
                         <div className="flex justify-end items-center gap-x-2">
-                            <div className="flex" ref={userAccref}>
+                            <div className="flex text-white" ref={userAccref}>
                                 <FaUser />
                                 <MdArrowDropDown />
                             </div>
-                            <div ref={userref} className="">
-                                <FaCartPlus />
+                            <div ref={userref} className="text-white">
+                                <div className="relative">
+                                    <FaCartPlus />
+                                    {data.length > 0 ? <div className="absolute text-center text-white rounded-full content-[''] h-[20px] w-[20px] bg-rose-900 left-[15px] top-[-20px]">
+                                        {data.length}
+                                    </div>
+                                        : ""}
+                                </div>
                             </div>
                         </div>
                         {userShow &&
-                            <div className="absolute z-50 top-[30px] right-0 w-[300px] bg-[#262626] py-4">
+                            <div className="absolute z-50 top-[30px] right-0 w-[300px] bg-rose-950 py-4">
                                 <ul className='font-sans text-[16px] font-normal text-[#FFFFFFB2]'>
                                     <li className='py-2 duration-300 ease-in-out
                        hover:text-[#fff] pl-3 hover:pl-6'>My Account</li>
@@ -118,8 +126,6 @@ const Navbar = () => {
                                 </div>
                             </div>
                         }
-
-
                     </div>
                 </Flex>
             </Container>

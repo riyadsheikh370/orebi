@@ -8,7 +8,7 @@ import Sale3 from "../assets/sale3.png"
 const Ads = () => {
     return (
         <>
-            <section className='lg:py-20 py-4 bg-zinc-300'>
+            <section className='lg:py-20 py-4 bg-rose-950'>
                 <Container>
                     <Flex className="justify-between">
                         <div className="w-[48%]">

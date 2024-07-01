@@ -1,5 +1,5 @@
-import React, { useContext, useState } from 'react'
-import { IoMdArrowDropdown, IoMdArrowDropup, IoIosAdd } from "react-icons/io";
+import React, { useContext, useEffect, useState } from 'react'
+import { IoMdArrowDropdown, IoMdArrowDropup, IoIosAdd, IoLogoWhatsapp } from "react-icons/io";
 import { BsGridFill } from "react-icons/bs";
 import { CiGrid2H } from "react-icons/ci";
 import Post from '../components/pagination/Post';
@@ -12,6 +12,9 @@ const Shop = () => {
   let data = useContext(apiData)
   let [currentPage, setCurrentPage] = useState(1)
   let [perPage, setPerpage] = useState(6)
+  // let [catshow, setCatShow] = useState(false)
+  let [category, setCategory] = useState([])
+  let [categorySearchFilter, setCategorySearchFilter] = useState([])
 
   let lastPage = currentPage * perPage
 
@@ -22,11 +25,15 @@ const Shop = () => {
   let pageNumber = []
 
 
-  for (let i = 0; i < Math.ceil(data.length / perPage); i++) {
+  for (let i = 0; i < Math.ceil(categorySearchFilter.length > 0 ? categorySearchFilter : data.length / perPage); i++) {
     pageNumber.push(i)
   };
   let paginate = (pageNumber) => {
     setCurrentPage(pageNumber + 1);
+  }
+  let [colshowCategory, setcolshowCategory] = useState(false)
+  let categoryo = () => {
+    setcolshowCategory(!colshowCategory)
   }
   let [colshow, setcolshow] = useState(false)
   let color = () => {
@@ -36,18 +43,25 @@ const Shop = () => {
   let brand = () => {
     setbrandshow(!brandshow)
   }
-let next =  () =>{
- if(currentPage < pageNumber.length){
-  setCurrentPage((state) => state + 1 )
- }
-}
-let prev = () =>{
-  if( currentPage > 1){
-    setCurrentPage((state) => state - 1)
+  let next = () => {
+    if (currentPage < pageNumber.length) {
+      setCurrentPage((state) => state + 1)
+    }
   }
-}
+  let prev = () => {
+    if (currentPage > 1) {
+      setCurrentPage((state) => state - 1)
+    }
+  }
 
+  useEffect(() => {
+    setCategory([...new Set(data.map((item) => item.category))])
+  }, [data])
 
+  let handleSubcate = (citem) => {
+    let categoryFilter = data.filter((item) => item.category == citem)
+    setCategorySearchFilter(categoryFilter)
+  }
 
   return (
     <section>
@@ -59,13 +73,14 @@ let prev = () =>{
         <div className="main_box lg:flex justify-between">
           <div className="catagory md:w-[25%] lg:px-0 px-3">
             <ul>
-              <li className='font-[700] text-[#262626] text-[20px] font-sans pb-[21px]' >Shop by Category</li>
-              <li className='font-[400] text-[#767676] text-[16px] font-sans py-[21px] flex justify-between w-[90%] items-center'><span>Category 1</span><IoIosAdd /></li>
-              <li className='font-[400] text-[#767676] text-[16px] font-sans flex justify-between w-[90%] items-center'><span>Category 2</span><IoIosAdd /></li>
-              <li className='font-[400] text-[rgb(118,118,118)] text-[16px] font-sans py-[21px] flex justify-between w-[90%] items-center'><span>Category 3</span><IoIosAdd /></li>
-              <li className='font-[400] text-[#767676] text-[16px] font-sans py-[2[21px] flex justify-between w-[90%] items-center'><span>Category 4</span><IoIosAdd /></li>
-              <li className='font-[400] text-[#767676] text-[16px] font-sans py-[2[21px] flex justify-between w-[90%] items-center py-[21px]'><span>Category 4</span><IoIosAdd /></li>
+              <li className='font-[700] text-[#262626] text-[20px] font-sans pb-[21px]' onClick={categoryo} >{colshowCategory == true ? <div className="H  flex items-center justify-between w-[90%]">Shop by Category<IoMdArrowDropup /> </div> : <div className=" flex items-center justify-between w-[90%]">Shop by Category<IoMdArrowDropdown /></div>}</li>
+              {colshowCategory == true && <div className="one">
+                {category.map((item) => (
+                  <li onClick={() => handleSubcate(item)} className='font-[400] text-[#767676] text-[16px] font-sans py-[21px] flex justify-between w-[90%] items-center'><span>{item}</span><IoIosAdd /></li>
+                ))}
+              </div>}
             </ul>
+
             <ul>
               <li className='font-[700] text-[#262626] text-[20px] font-sans pb-[21px]' onClick={color} >{colshow == true ? <div className="H  flex items-center justify-between w-[90%]">Shop by Color<IoMdArrowDropup /> </div> : <div className=" flex items-center justify-between w-[90%]">Shop by Color<IoMdArrowDropdown /></div>}</li>
               {colshow == true && <div className="one">
@@ -86,14 +101,14 @@ let prev = () =>{
                 <li className='font-[400] text-[#767676] text-[16px] font-sans py-[21px] flex justify-between w-[90%] items-center'><span>Brand 5</span><IoIosAdd /></li>
               </div>}
             </ul>
-            <ul>
+            {/* <ul>
               <li className='font-[700] text-[#262626] text-[20px] font-sans pb-[21px]' >Shop by Price</li>
               <li className='font-[400] text-[#767676] text-[16px] font-sans py-[21px] flex justify-between w-[90%] items-center'><span>$0.00 - $9.99</span><IoIosAdd /></li>
               <li className='font-[400] text-[#767676] text-[16px] font-sans py-[21px] flex justify-between w-[90%] items-center'><span>$0.00 - $9.99</span><IoIosAdd /></li>
               <li className='font-[400] text-[#767676] text-[16px] font-sans py-[21px] flex justify-between w-[90%] items-center'><span>$0.00 - $9.99</span><IoIosAdd /></li>
               <li className='font-[400] text-[#767676] text-[16px] font-sans py-[21px] flex justify-between w-[90%] items-center'><span>$0.00 - $9.99</span><IoIosAdd /></li>
               <li className='font-[400] text-[#767676] text-[16px] font-sans py-[21px] flex justify-between w-[90%] items-center'><span>$0.00 - $9.99</span><IoIosAdd /></li>
-            </ul>
+            </ul> */}
           </div>
           <div className="prodect_item md:w-[75%]">
             <div className="sistambtn lg:flex justify-between">
@@ -121,7 +136,7 @@ let prev = () =>{
               </div>
             </div>
             <div className="prodects flex justify-between flex-wrap py-7">
-              <Post allData={allData} />
+              <Post allData={allData} categorySearchFilter={categorySearchFilter} />
             </div>
             <div className="lg:text-end text-center">
               <PaginationArea pageNumber={pageNumber} paginate={paginate} currentPage={currentPage} next={next} prev={prev} />
