@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { IoMdArrowDropdown, IoMdArrowDropup, IoIosAdd, IoLogoWhatsapp } from "react-icons/io";
-import { BsGridFill } from "react-icons/bs";
-import { CiGrid2H } from "react-icons/ci";
+import { PiSquaresFourFill } from "react-icons/pi";
+import { GrSort } from "react-icons/gr";
 import Post from '../components/pagination/Post';
 import { apiData } from '../components/ContextApi';
 import PaginationArea from "../components/pagination/PaginationArea";
@@ -15,11 +15,10 @@ const Shop = () => {
   // let [catshow, setCatShow] = useState(false)
   let [category, setCategory] = useState([])
   let [categorySearchFilter, setCategorySearchFilter] = useState([])
+  let [multiList, setMultiList] = useState('')
 
   let lastPage = currentPage * perPage
-
   let firstPage = lastPage - perPage
-
   let allData = data.slice(firstPage, lastPage)
 
   let pageNumber = []
@@ -63,6 +62,11 @@ const Shop = () => {
     setCategorySearchFilter(categoryFilter)
   }
 
+  let handleList = () => {
+    setMultiList("activeList")
+  }
+
+
   return (
     <section>
       <div className="container mx-auto">
@@ -101,20 +105,12 @@ const Shop = () => {
                 <li className='font-[400] text-[#767676] text-[16px] font-sans py-[21px] flex justify-between w-[90%] items-center'><span>Brand 5</span><IoIosAdd /></li>
               </div>}
             </ul>
-            {/* <ul>
-              <li className='font-[700] text-[#262626] text-[20px] font-sans pb-[21px]' >Shop by Price</li>
-              <li className='font-[400] text-[#767676] text-[16px] font-sans py-[21px] flex justify-between w-[90%] items-center'><span>$0.00 - $9.99</span><IoIosAdd /></li>
-              <li className='font-[400] text-[#767676] text-[16px] font-sans py-[21px] flex justify-between w-[90%] items-center'><span>$0.00 - $9.99</span><IoIosAdd /></li>
-              <li className='font-[400] text-[#767676] text-[16px] font-sans py-[21px] flex justify-between w-[90%] items-center'><span>$0.00 - $9.99</span><IoIosAdd /></li>
-              <li className='font-[400] text-[#767676] text-[16px] font-sans py-[21px] flex justify-between w-[90%] items-center'><span>$0.00 - $9.99</span><IoIosAdd /></li>
-              <li className='font-[400] text-[#767676] text-[16px] font-sans py-[21px] flex justify-between w-[90%] items-center'><span>$0.00 - $9.99</span><IoIosAdd /></li>
-            </ul> */}
           </div>
           <div className="prodect_item md:w-[75%]">
             <div className="sistambtn lg:flex justify-between">
               <div className="gridmain ml-[10px] justify-between flex lg:w-[11%] w-[25%] lg:ml-[-1px]">
-                <div className="grid1 text-[20px] p-[10px] border-[1px] border-[#262626] hover:text-[#fff] hover:bg-[#262626]"><BsGridFill /></div>
-                <div className="grid2 text-[20px] p-[10px] border-[1px] border-[#262626] hover:text-[#fff] hover:bg-[#262626]"><CiGrid2H /></div>
+                <div onClick={() => setMultiList("")} className={`lg:h-[46px] h-[26px] lg:w-[46px] w-[26px] flex justify-center items-center ${multiList == "activeList" ? "bg-white text-black" : "bg-black text-white"} border-[1px] border-[#737373] text-[20px]`}><PiSquaresFourFill /></div>
+                <div onClick={handleList} className="lg:h-[46px] h-[26px] lg:w-[46px] w-[26px] flex justify-center items-center text-[#737373] hover:text-white duration-300 ease-in-out hover:bg-black border-[1px] border-[#737373] text-[20px]"><GrSort /></div>
               </div>
               <div className="op flex justify-between lg:w-[40%] w-[99%] px-2 lg:px-0 lg:pt-0 pt-[20px]">
                 <div className="items-center flex">
@@ -135,9 +131,7 @@ const Shop = () => {
                 </div>
               </div>
             </div>
-            <div className="prodects flex justify-between flex-wrap py-7">
-              <Post allData={allData} categorySearchFilter={categorySearchFilter} />
-            </div>
+            <Post allData={allData} categorySearchFilter={categorySearchFilter} multiList={multiList} />
             <div className="lg:text-end text-center">
               <PaginationArea pageNumber={pageNumber} paginate={paginate} currentPage={currentPage} next={next} prev={prev} />
             </div>
