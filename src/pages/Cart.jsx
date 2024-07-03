@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Container from "../components/Container";
 import Flex from "../components/Flex";
 import { productDecrement, productIncrement, removeProduct } from "../components/slice/ProductSlice";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   let dispatch = useDispatch()
@@ -19,11 +20,11 @@ const Cart = () => {
     dispatch(removeProduct(index))
   }
 
-const {totalPrice, totalquantity} = data.reduce((acc, item)=>{
-acc.totalPrice += item.price * item.qun
-acc.totalquantity += item.qun
-return acc
-},{totalPrice:0, totalquantity:0})
+  const { totalPrice, totalquantity } = data.reduce((acc, item) => {
+    acc.totalPrice += item.price * item.qun
+    acc.totalquantity += item.qun
+    return acc
+  }, { totalPrice: 0, totalquantity: 0 })
 
 
 
@@ -110,7 +111,11 @@ return acc
               </div>
             </div>
             <div className="mt-2">
-              <p className='w-[220px] h-[50px] bg-[#262626] text-white border-2 border-[#262626] text-center leading-[50px]'>Proceed to Checkout</p>
+              <p className='w-[220px] h-[50px] bg-[#262626] text-white border-2 border-[#262626] text-center leading-[50px]'>
+                <Link to="/checkout">
+                  Proceed to Checkout
+                </Link>
+              </p>
             </div>
           </div>
         </div>
