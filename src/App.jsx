@@ -8,6 +8,8 @@ import ProductDetails from "./pages/ProductDetails";
 import Shop from "./pages/Shop";
 import Error from "./pages/Error";
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from "react-router-dom"
+import Signup from "./pages/Signup";
+import Login from "./pages/Login";
 
 let router = createBrowserRouter(createRoutesFromElements(
   <Route element={<RootLayout />}>
@@ -18,6 +20,8 @@ let router = createBrowserRouter(createRoutesFromElements(
     <Route path="/contact" element={<Contact />}></Route>
     <Route path="/checkout" element={<Checkout/>}></Route>
     <Route path="/cart" element={<Cart/>}></Route>
+    <Route path="/signup" element={<Signup/>}></Route>
+    <Route path="/login" element={<Login/>}></Route>
     <Route path="*" element={<Error/>}></Route>
   </Route>
 ))

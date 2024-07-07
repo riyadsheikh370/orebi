@@ -4,7 +4,7 @@ import { FaBars } from "react-icons/fa6";
 import { MdArrowDropDown } from "react-icons/md";
 import { RxCross2 } from "react-icons/rx";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CartImg from "../assets/cart.png";
 import Container from './Container';
 import { apiData } from './ContextApi';
@@ -159,39 +159,43 @@ const Navbar = () => {
                             <div className="absolute z-50 top-[30px] right-0 w-[300px] bg-rose-950 py-3 px-6">
                                 <ul className='font-sans text-[16px] font-normal text-[#FFFFFFB2]'>
                                     <li className='py-[16px] duration-300 ease-in-out hover:text-[#fff] hover:pl-[10px]'>My Account</li>
-                                    <li className='py-[16px] duration-300 ease-in-out hover:text-[#fff] hover:pl-[10px]'>Log in</li>
-                                    <li className='py-[16px] duration-300 ease-in-out hover:text-[#fff] hover:pl-[10px]'>Sign Up</li>
+                                    <li className='py-[16px] duration-300 ease-in-out hover:text-[#fff] hover:pl-[10px]'>
+                                    <Link to="/login">Log in</Link></li>
+                                    <li className='py-[16px] duration-300 ease-in-out hover:text-[#fff] hover:pl-[10px]'>
+                                        <Link to="/signup">Sign Up</Link></li>
                                 </ul>
                             </div>
                         }
 
                         {usercartShow &&
                             <div className="w-[360px] z-50 absolute bg-[#F5F5F3] top-[50px] right-0">
-                                <div className="py-3 ">
-                                    <div className="flex justify-around items-center">
-                                        <div className="w-[150px]">
-                                            <img src={CartImg} className='h-[100px]' alt="" />
-                                        </div>
-                                        <div className="">
-                                            <h3>Black Smart Watch</h3>
-                                            <h5>$44.00</h5>
-                                        </div>
-                                        <div className="">
-                                            <RxCross2 />
-                                        </div>
-                                    </div>
-                                    <div className="">
-                                        <h3 className='pl-4 py-3'>Subtotal: <span>$44.00</span></h3>
-                                        <div className="flex justify-around">
-                                            <div className="">
-                                                <a className='w-[148px] h-[50px] border-2 border-[#262626] inline-block text-center leading-[50px]' href="#">View Cart</a>
+                                {data.map((item) => (
+                                    <div className="py-3 ">
+                                        <div className="flex justify-around items-center">
+                                            <div className="w-[150px]">
+                                                <img src={item.thumbnail} className='h-[100px]' alt="" />
                                             </div>
                                             <div className="">
-                                                <a className='w-[148px] h-[50px] border-2 border-[#262626] inline-block text-center leading-[50px]' href="#">Checkout</a>
+                                                <h3>{item.title}</h3>
+                                                <h5>${item.price}</h5>
+                                            </div>
+                                            <div className="">
+                                                <RxCross2 />
+                                            </div>
+                                        </div>
+                                        <div className="">
+                                            <h3 className='pl-4 py-3'>Subtotal: <span>$44.00</span></h3>
+                                            <div className="flex justify-around">
+                                                <div className="">
+                                                    <Link to="/cart" className='w-[148px] h-[50px] border-2 border-[#262626] inline-block text-center leading-[50px]' href="#">View Cart</Link>
+                                                </div>
+                                                <div className="">
+                                                    <Link to="/checkout" className='w-[148px] h-[50px] border-2 border-[#262626] inline-block text-center leading-[50px]' href="#">Checkout</Link>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                ))}
                             </div>
                         }
 
