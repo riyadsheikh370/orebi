@@ -158,7 +158,8 @@ const Navbar = () => {
                         {userShow &&
                             <div className="absolute z-50 top-[30px] right-0 w-[300px] bg-rose-950 py-3 px-6">
                                 <ul className='font-sans text-[16px] font-normal text-[#FFFFFFB2]'>
-                                    <li className='py-[16px] duration-300 ease-in-out hover:text-[#fff] hover:pl-[10px]'>My Account</li>
+                                    <li className='py-[16px] duration-300 ease-in-out hover:text-[#fff] hover:pl-[10px]'>
+                                        <Link to="/account">My Account</Link></li>
                                     <li className='py-[16px] duration-300 ease-in-out hover:text-[#fff] hover:pl-[10px]'>
                                     <Link to="/login">Log in</Link></li>
                                     <li className='py-[16px] duration-300 ease-in-out hover:text-[#fff] hover:pl-[10px]'>
